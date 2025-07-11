@@ -67,7 +67,7 @@ replay_pid*
 
 ### application*.yml ###
 #src/main/resources/application.yml
-#src/main/resources/application-db.yml
+src/main/resources/application-db.yml
 #src/main/resources/application-jwt.yml
 #src/main/resources/application-mail.yml
 #src/main/resources/application-aws.yml
