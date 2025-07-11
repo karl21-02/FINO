@@ -1,4 +1,4 @@
-package com.kangwon.fino.config; // 패키지 경로가 정확한지 확인
+package com.kangwon.fino.global.config; // 패키지 경로가 정확한지 확인
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
