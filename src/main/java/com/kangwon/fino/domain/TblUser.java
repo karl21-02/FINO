@@ -28,6 +28,6 @@ public class TblUser {
 
     @Column(name = "user_gender")
     @Comment("유저 성별")
-    private Integer gender; // 0이면 남성, 1이면 여성
+    private Integer gender;
 
 }
