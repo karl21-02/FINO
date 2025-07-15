@@ -1,4 +1,4 @@
-package com.kangwon.fino.global.config; // 패키지 경로가 정확한지 확인
+package com.kangwon.fino.global.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration // 스프링 설정 클래스임을 명시
-@EnableWebSecurity // 웹 보안 기능을 활성화
+@EnableWebSecurity // 웹 보안 기능 활성화
 public class SecurityConfig {
 
     @Bean // Spring Bean으로 등록하여 스프링이 이 필터 체인을 관리하도록 함
