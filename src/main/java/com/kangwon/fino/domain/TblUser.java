@@ -30,4 +30,12 @@ public class TblUser {
     @Comment("유저 성별")
     private Integer gender;
 
+    @Column(name = "latitude")
+    @Comment("유저의 등록된 위도 (기준 위치)")
+    private Double latitude;
+
+    @Column(name = "longitude")
+    @Comment("유저의 등록된 경도 (기준 위치)")
+    private Double longitude;
+
 }
