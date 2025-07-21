@@ -28,8 +28,6 @@ public class UserLocationServiceImpl implements UserLocationService {
         user.setLatitude(requestDto.getLatitude());
         user.setLongitude(requestDto.getLongitude());
 
-        userRepository.save(user); // 변경사항 저장
-
         return true;
     }
 
