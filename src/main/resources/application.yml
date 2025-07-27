@@ -16,9 +16,11 @@ server:
       enabled: true
       force: true
 
-logging:
-  level:
-    root: INFO
-    org.springframework: INFO
-    org.springframework.security: DEBUG
-    com.kangwon.fino: DEBUG
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  packages-to-scan: com.kangwon.fino
