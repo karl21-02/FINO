@@ -10,3 +10,4 @@ public interface UserLocationService {
     // 위치 기반 인증
     UserResponse.LocationAuthResultDto authenticateByLocation(UserRequest.LocationAuthDto requestDto);
 }
+
