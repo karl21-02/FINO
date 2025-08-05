@@ -1,14 +1,18 @@
-package com.kangwon.fino.domain;
+package com.kangwon.fino.global.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tbl_report")
+@EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -34,37 +38,27 @@ public class TblReport {
     @Comment("총 소비 금액")
     private BigDecimal totalSpending;
 
-    @Column(name = "report_category_spending", columnDefinition = "jsonb")
+    @Column(name = "report_category_spending", columnDefinition = "json")
     @Comment("카테고리별 소비")
     private String categorySpending;
 
-    @Column(name = "report_previous_month_comparison", columnDefinition = "jsonb")
+    @Column(name = "report_previous_month_comparison", columnDefinition = "json")
     @Comment("전달 대비 비교")
     private String previousMonthComparison;
 
-    @Column(name = "report_local_business_index", columnDefinition = "jsonb")
+    @Column(name = "report_local_business_index", columnDefinition = "json")
     @Comment("지역 상권 지표")
     private String localBusinessIndex;
 
-    @Column(name = "report_household_comparison_index", columnDefinition = "jsonb")
+    @Column(name = "report_household_comparison_index", columnDefinition = "json")
     @Comment("타 가구 비교 지표")
     private String householdComparisonIndex;
 
-    @Column(nullable = false, updatable = false)
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
-
-    @PrePersist
-    protected void onCreate() {
-        LocalDateTime now = LocalDateTime.now();
-        createdAt = now;
-        updatedAt = now;
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }

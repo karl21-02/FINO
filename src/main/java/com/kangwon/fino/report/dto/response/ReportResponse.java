@@ -1,7 +1,7 @@
 // ReportResponse.java
 package com.kangwon.fino.report.dto.response;
 
-import com.kangwon.fino.domain.TblReport;
+import com.kangwon.fino.global.domain.TblReport;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -32,7 +32,6 @@ public class ReportResponse {
                 .previousMonthComparison(report.getPreviousMonthComparison())
                 .localBusinessIndex(report.getLocalBusinessIndex())
                 .householdComparisonIndex(report.getHouseholdComparisonIndex())
-                .createdAt(report.getCreatedAt())
                 .build();
     }
 }

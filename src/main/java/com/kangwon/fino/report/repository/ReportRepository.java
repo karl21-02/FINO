@@ -1,8 +1,8 @@
 // ReportRepository.java
 package com.kangwon.fino.report.repository;
 
-import com.kangwon.fino.domain.TblReport;
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblReport;
+import com.kangwon.fino.global.domain.TblUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

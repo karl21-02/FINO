@@ -1,8 +1,9 @@
 // ReportServiceImpl.java
 package com.kangwon.fino.report.service;
 
-import com.kangwon.fino.domain.TblReport;
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblReport;
+import com.kangwon.fino.global.domain.TblUser;
+import com.kangwon.fino.global.exception.BadRequestException;
 import com.kangwon.fino.report.dto.response.ReportResponse;
 import com.kangwon.fino.report.repository.ReportRepository;
 import com.kangwon.fino.user.repository.UserRepository;
@@ -13,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.kangwon.fino.global.exception.ExceptionCode.USER_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -58,7 +61,8 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public ReportResponse getReport(Long userId, String reportMonth) {
         TblUser user = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + userId));
+                .orElseThrow(() -> new BadRequestException(USER_NOT_FOUND));
+
 
         TblReport report = reportRepository.findByUserAndReportMonth(user, reportMonth)
                 .orElseThrow(() -> new EntityNotFoundException("Report not found for month: " + reportMonth));
