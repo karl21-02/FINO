@@ -1,4 +1,6 @@
+/*
 package com.kangwon.fino.user.controller;
+
 
 import com.kangwon.fino.global.exception.ErrorResponse;
 import com.kangwon.fino.user.dto.request.MemberRequest;
@@ -29,6 +31,7 @@ public class UserController {
      * @param dto MemberRequest.LoginDto
      * @return ResponseEntity
      */
+/*
     @PostMapping("/in")
     @Operation(summary = "로그인 API", description = "사용자가 아이디와 비밀번호로 로그인합니다.")
     @ApiResponses({
@@ -42,3 +45,4 @@ public class UserController {
     }
 
 }
+*/

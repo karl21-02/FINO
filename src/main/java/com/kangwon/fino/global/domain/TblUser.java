@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+// PROTECTED --> PUBLIC 으로 변경
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
 @Builder
 @Getter
@@ -19,14 +20,20 @@ import java.time.LocalDateTime;
 public class TblUser {
 
     @Id
-    @Column(name = "user_seq")
+    @Column(name = "user_id")
     @Comment("유저 구분자")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name", length = 10)
-    @Comment("유저 이름")
-    private String name;
+    //@Column(name = "user_name", length = 10)
+    //@Comment("유저 이름")
+    private String username;
+
+    //@Column(name = "user_pwd", length = 100)
+    //@Comment("유저 비밀번호")
+    private String password;
+
+    private String role;
 
     @Column(name = "user_tel", length = 13)
     @Comment("유저 연락처")

@@ -1,17 +1,22 @@
 package com.kangwon.fino.user.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Setter
+@Getter
 public class MemberRequest {
-    @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
+    @Setter
+    @Getter
     public static class SignInDto {
-        private String userId;
-        private String userPw;
+        private String username;
+        private String password;
+        //private String phone;
+        //private Integer gender;
+        //private Double latitude;
+        //private Double longtitude;
+
     }
 }

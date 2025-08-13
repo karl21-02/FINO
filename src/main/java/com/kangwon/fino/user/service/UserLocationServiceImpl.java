@@ -84,3 +84,4 @@ public class UserLocationServiceImpl implements UserLocationService {
         return R * c; // 미터 단위 거리
     }
 }
+
