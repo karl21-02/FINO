@@ -1,6 +1,6 @@
 package com.kangwon.fino.user.service;
 
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblUser;
 import com.kangwon.fino.user.domain.RoleType;
 import com.kangwon.fino.user.dto.request.MemberRequest;
 import com.kangwon.fino.user.dto.response.MemberResponse;

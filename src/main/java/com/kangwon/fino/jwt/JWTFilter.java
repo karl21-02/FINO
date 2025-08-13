@@ -1,6 +1,6 @@
 package com.kangwon.fino.jwt;
 
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblUser;
 import com.kangwon.fino.user.dto.CustomUserDetails;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
