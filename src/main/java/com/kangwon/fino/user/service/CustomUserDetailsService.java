@@ -1,7 +1,7 @@
 package com.kangwon.fino.user.service;
 
 
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblUser;
 import com.kangwon.fino.user.dto.CustomUserDetails;
 import com.kangwon.fino.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

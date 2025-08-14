@@ -1,6 +1,6 @@
 package com.kangwon.fino.user.dto;
 
-import com.kangwon.fino.domain.TblUser;
+import com.kangwon.fino.global.domain.TblUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
