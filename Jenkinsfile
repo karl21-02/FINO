@@ -54,6 +54,10 @@ pipeline {
           -e SPRING_DATASOURCE_URL="${DB_URL}" \
           -e SPRING_DATASOURCE_USERNAME="${DB_USERNAME}" \
           -e SPRING_DATASOURCE_PASSWORD="${DB_PASSWORD}" \
+          -e SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver \
+          -e SPRING_JPA_HIBERNATE_DDL_AUTO=create \
+          -e SPRING_JPA_SHOW_SQL=true \
+          -e SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL=true \
           -e SPRING_JWT_SECRET="${JWT_SECRET}" \
           -e SPRING_PROFILES_ACTIVE=prod \
           $repository:$BUILD_NUMBER'''
