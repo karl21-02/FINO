@@ -67,3 +67,4 @@ replay_pid*
 
 ### application*.yml ###
 application-*.yml
+.env
