@@ -48,8 +48,8 @@ dependencies {
     // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 
-    // env reader
-    implementation 'io.github.cdimascio:dotenv-spring-boot:2.3.2'
+    // https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java
+    implementation("io.github.cdimascio:dotenv-java:3.0.0")
 }
 
 tasks.named('test') {
