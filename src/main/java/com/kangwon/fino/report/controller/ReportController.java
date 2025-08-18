@@ -32,6 +32,7 @@ public class ReportController {
         return ResponseEntity.ok(report);
     }
 
+
     // 보고서 생성
     @PostMapping("/users/{userId}")
     public ResponseEntity<Void> createReport(@PathVariable Long userId) {
