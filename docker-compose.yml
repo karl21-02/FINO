@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: mysql:8.0
-    container_name: mysql-dolbom
+    container_name: mysql-fino-local
     ports:
       - "3306:3306"
     environment:
@@ -13,6 +13,26 @@ services:
       MYSQL_ROOT_PASSWORD: ma29562956!
     volumes:
       - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  app:
+    build: .
+    container_name: fino-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/fino_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=TRUE&useSSL=FALSE
+      SPRING_DATASOURCE_USERNAME: fino_user
+      SPRING_DATASOURCE_PASSWORD: ma29562956!
+      JWT_SECRET: localDevSecretKeyForTesting
+      SPRING_PROFILES_ACTIVE: local
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
   mysql-data:

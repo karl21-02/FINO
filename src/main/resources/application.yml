@@ -1,30 +1,30 @@
 spring:
   application:
-    name: FINO
+    name: ${APP_NAME:FINO}
   profiles:
-    active: ${SPRING_PROFILES_ACTIVE:local}
-    include: db, jwt
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+    include: db
   devtools:
     restart:
-      enabled: false
+      enabled: ${DEVTOOLS_RESTART_ENABLED:false}
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
   servlet:
     encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
+      charset: ${SERVLET_ENCODING_CHARSET:UTF-8}
+      enabled: ${SERVLET_ENCODING_ENABLED:true}
+      force: ${SERVLET_ENCODING_FORCE:true}
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
-    enabled: true
+    path: ${SWAGGER_UI_PATH:/swagger-ui.html}
+    enabled: ${SWAGGER_UI_ENABLED:true}
   api-docs:
-    path: /v3/api-docs
-    enabled: true
-  packages-to-scan: com.kangwon.fino
+    path: ${API_DOCS_PATH:/v3/api-docs}
+    enabled: ${API_DOCS_ENABLED:true}
+  packages-to-scan: ${PACKAGES_TO_SCAN:com.kangwon.fino}
 
 location:
   auth:
-    allowed-distance-meters: 150.0 # 허용 오차 범위 (미터 단위)
+    allowed-distance-meters: ${LOCATION_AUTH_ALLOWED_DISTANCE:150.0}
