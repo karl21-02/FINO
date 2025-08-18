@@ -54,7 +54,7 @@ pipeline {
           -e SPRING_DATASOURCE_URL="${DB_URL}" \
           -e SPRING_DATASOURCE_USERNAME="${DB_USERNAME}" \
           -e SPRING_DATASOURCE_PASSWORD="${DB_PASSWORD}" \
-          -e JWT_SECRET="${JWT_SECRET}" \
+          -e SPRING_JWT_SECRET="${JWT_SECRET}" \
           -e SPRING_PROFILES_ACTIVE=prod \
           $repository:$BUILD_NUMBER'''
       }
