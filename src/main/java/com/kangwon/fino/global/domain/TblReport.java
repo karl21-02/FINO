@@ -26,6 +26,7 @@ public class TblReport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reportId;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private TblUser user; // FK 관계 설정

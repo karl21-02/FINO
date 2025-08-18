@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-dolbom
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: fino_db
+      MYSQL_USER: fino_user
+      MYSQL_PASSWORD: ma29562956!
+      MYSQL_ROOT_PASSWORD: ma29562956!
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

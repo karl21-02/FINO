@@ -35,9 +35,9 @@ public class SecurityConfig {
 
 //    private final TokenProvider tokenProvider;
     // jwt를 발급하고 검증하는 기능을 담당
-    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    // private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     // 인증되지 않은 사용자가 요청할 경우 호출되는 예외 처리
-    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
+    // private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
     // 로그인은 했지만 권한이 없는 사용자가 요청할 때 예외 처리
 
     // 비밀번호 복호화 방식 선택
@@ -52,16 +52,20 @@ public class SecurityConfig {
                 // token 사용 방식 -- csrf : disable
                 .csrf(csrf -> csrf.disable())
 
+                /*
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                         .accessDeniedHandler(jwtAccessDeniedHandler)
                 )
+
+                */
 
 
 
 
                 .authorizeHttpRequests(authorize -> authorize
                         // Swagger UI 및 OpenAPI 관련 URL 패턴을 인증 없이 허용 (permit)
+                        // swagger 및 openapi 비활용 -- permitAll() 필요없음 -- 확인 필요
                         .requestMatchers(
                                 "/swagger-ui.html",         // Swagger UI 메인 페이지
                                 "/swagger-ui/**",           // Swagger UI 정적 리소스 (JS, CSS 등)
@@ -72,11 +76,11 @@ public class SecurityConfig {
                                 "/api/auteht"
                         ).permitAll()
                         .requestMatchers(
-                                "/api/v1/sign/in",          // 로그인 API 허용 (필요)
-                                "/api/v1/users/**",         // 사용자 위치 설정 API 허용 (임시)
-                                "/api/v1/auth/location"     // 위치 인증 API 허용 (임시)
+                                "/api/v1/**"
                         ).permitAll()
-                        .requestMatchers("/login", "/", "/join").permitAll()
+                        .requestMatchers(
+                                "/login", "/", "/join"
+                        ).permitAll()
 
                         .anyRequest().authenticated() // 나머지 모든 요청에 대해서는 인증된 사용자만 허용
                 );
