@@ -51,8 +51,7 @@ pipeline {
   }
   post {
     always {
-      agent any
-      steps {
+      node('') {
         sh 'docker logout'
       }
     }
