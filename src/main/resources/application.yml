@@ -7,9 +7,6 @@ spring:
   devtools:
     restart:
       enabled: false
-  jwt:
-    secret: vmfhaltmskdlstkfkdgodyroqkfwkdbalroqkfwkdbalaaaaaaaaaaaaaaaabbbbb
-
 
 server:
   port: 8080
