@@ -30,7 +30,6 @@ public class TblReport {
     @JoinColumn(name = "user_id")
     private TblUser user; // FK 관계 설정
 
-
     @Column(name = "report_month", length = 7, nullable = false)
     @Comment("보고서 생성 월")
     private String reportMonth; // 예: "2025-07"
