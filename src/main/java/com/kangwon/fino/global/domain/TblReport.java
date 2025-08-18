@@ -34,6 +34,7 @@ public class TblReport {
     @Comment("보고서 생성 월")
     private String reportMonth; // 예: "2025-07"
 
+
     @Column(name = "report_total_spending", nullable = false)
     @Comment("총 소비 금액")
     private BigDecimal totalSpending;
