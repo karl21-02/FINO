@@ -12,6 +12,7 @@ public interface ReportService {
     // 특정 보고서 조회
     ReportResponse getReport(Long userId, String reportMonth);
 
+
     // 보고서 생성
     void createMonthlyReport(Long userId);
 
