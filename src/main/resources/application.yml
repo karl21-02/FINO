@@ -3,7 +3,7 @@ spring:
     name: ${APP_NAME:FINO}
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:prod}
-    include: db
+    include: db, jwt
   devtools:
     restart:
       enabled: ${DEVTOOLS_RESTART_ENABLED:false}
