@@ -17,6 +17,7 @@ public class JWTUtil {
 
     private Key key;
 
+
     public JWTUtil(@Value("${spring.jwt.secret}")String secret) {
 
 
