@@ -23,6 +23,7 @@ public class ReportController {
         return ResponseEntity.ok(reports);
     }
 
+
     // 특정 월의 보고서 조회
     @GetMapping("/users/{userId}/month/{reportMonth}")
     public ResponseEntity<ReportResponse> getReportByMonth(
