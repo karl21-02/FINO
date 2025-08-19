@@ -74,6 +74,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()));
+
+        httpSecurity
                 // token 사용 방식 -- csrf : disable
                 .csrf(csrf -> csrf.disable())
 
