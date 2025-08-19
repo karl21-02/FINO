@@ -29,10 +29,12 @@ public class TblUser {
     //@Comment("유저 이름")
     private String username;
 
-    //@Column(name = "user_pwd", length = 100)
+    //@Column(name = "user_password", length = 100)
     //@Comment("유저 비밀번호")
     private String password;
 
+    //@Column(name = "user_role")
+    //@Comment("유저 역할")
     private String role;
 
     @Column(name = "user_tel", length = 13)

@@ -17,5 +17,5 @@ public interface ReportService {
     void createMonthlyReport(Long userId);
 
     // 보고서 삭제 
-    void deleteReport(Long reportId);
+    void deleteReport(Long reportId, Long userId);
 }

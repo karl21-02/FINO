@@ -20,10 +20,8 @@ public class CustomUserDetails implements UserDetails {
         Collection<GrantedAuthority> collection = new ArrayList<>();
 
         collection.add(new GrantedAuthority() {
-
             @Override
             public String getAuthority() {
-
                 return tblUser.getRole();
             }
         });
@@ -31,15 +29,17 @@ public class CustomUserDetails implements UserDetails {
         return collection;
     }
 
+    public Long getId() {
+        return tblUser.getId();
+    }
+
     @Override
     public String getPassword() {
-
         return tblUser.getPassword();
     }
 
     @Override
     public String getUsername() {
-
         return tblUser.getUsername();
     }
 

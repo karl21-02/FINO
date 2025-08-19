@@ -64,9 +64,6 @@ public class SecurityConfig {
 
                 */
 
-
-
-
                 .authorizeHttpRequests(authorize -> authorize
                         // Swagger UI 및 OpenAPI 관련 URL 패턴을 인증 없이 허용 (permit)
                         // swagger 및 openapi 비활용 -- permitAll() 필요없음 -- 확인 필요
@@ -93,7 +90,6 @@ public class SecurityConfig {
                 );
         httpSecurity
                 .addFilterBefore(new JWTFilter(jwtUtil), LoginFilter.class);
-
 
         httpSecurity
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil, refreshRepository), UsernamePasswordAuthenticationFilter.class);

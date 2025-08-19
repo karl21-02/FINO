@@ -1,5 +1,6 @@
 package com.kangwon.fino.global.domain;
 
+import com.kangwon.fino.report.domain.ReportCategorySpending;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.*;
 
 @Entity
 @Table(name = "tbl_report")
@@ -40,13 +42,22 @@ public class TblReport {
     @Comment("총 소비 금액")
     private BigDecimal totalSpending;
 
-    @Column(name = "report_category_spending", columnDefinition = "json")
-    @Comment("카테고리별 소비")
-    private String categorySpending;
+    //@Column(name = "report_category_spending")
+    //@Comment("카테고리별 소비")
+    @OneToMany(mappedBy = "report", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ReportCategorySpending> categorySpendings = new ArrayList<>();
 
-    @Column(name = "report_previous_month_comparison", columnDefinition = "json")
-    @Comment("전달 대비 비교")
-    private String previousMonthComparison;
+    // @Column(name = "report_previous_month_comparison", columnDefinition = "json")
+    // @Comment("전달 대비 비교")
+    // private String previousMonthComparison;
+
+    @Column(name = "previous_month_total_spending", nullable = false)
+    @Comment("전달 총 소비 금액")
+    private BigDecimal previousMonthTotalSpending;
+
+    @Column(name = "spending_change_rate", nullable = false)
+    @Comment("소비 변화율")
+    private Double spendingChangeRate;
 
     @Column(name = "report_local_business_index", columnDefinition = "json")
     @Comment("지역 상권 지표")
