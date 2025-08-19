@@ -1,8 +1,10 @@
 package com.kangwon.fino.global.config;
 
+import com.kangwon.fino.jwt.CustomLogoutFilter;
 import com.kangwon.fino.jwt.JWTFilter;
 import com.kangwon.fino.jwt.JWTUtil;
 import com.kangwon.fino.jwt.LoginFilter;
+import com.kangwon.fino.user.repository.RefreshRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Configuration
@@ -26,6 +29,7 @@ public class SecurityConfig {
 
     private final AuthenticationConfiguration authenticationConfiguration;
     private final JWTUtil jwtUtil;
+    private final RefreshRepository refreshRepository;
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -81,6 +85,9 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/login", "/", "/join"
                         ).permitAll()
+                        .requestMatchers(
+                                "/reissue"
+                        ).permitAll()
 
                         .anyRequest().authenticated() // 나머지 모든 요청에 대해서는 인증된 사용자만 허용
                 );
@@ -89,7 +96,11 @@ public class SecurityConfig {
 
 
         httpSecurity
-                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil), UsernamePasswordAuthenticationFilter.class);
+                .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration),jwtUtil, refreshRepository), UsernamePasswordAuthenticationFilter.class);
+
+        //프로젝트에서 만든 로그아웃필터가 먼저 구현되기 위해 addFilterBefore 사용
+        httpSecurity
+                .addFilterBefore(new CustomLogoutFilter(jwtUtil, refreshRepository), LogoutFilter.class);
 
         // 세션 설정
         httpSecurity
