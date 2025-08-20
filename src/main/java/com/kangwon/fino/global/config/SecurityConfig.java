@@ -60,9 +60,9 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         // 프론트엔드 개발 서버의 주소를 명시적으로 허용
         config.setAllowedOrigins(List.of("*"));
-        config.setAllowedMethods(Collections.singletonList("*"));
-        config.setAllowCredentials(true);
-        config.setAllowedHeaders(Collections.singletonList("*"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // config.setAllowCredentials(true);
+        config.setAllowedHeaders(List.of("*"));
         config.setMaxAge(3600L);
         config.setExposedHeaders(List.of("Authorization", "Authorization-refresh"));
 
